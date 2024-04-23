@@ -1,0 +1,12 @@
+{
+  "name": "diabease-daidp-des529",
+  "version": "1.0.0",
+  "description": "This Diabetes Management Platform is designed to assist individuals with diabetes and their caregivers in managing the condition effectively. It allows users to register, log in, track meals, medications, glucose levels, and interact with an AI-powered chatbot for additional support.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
