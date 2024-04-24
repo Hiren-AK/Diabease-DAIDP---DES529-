@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['name', 'email', 'password', 'age', 'gender', 'diagnosed_duration', 'dietary_preference']
+        fields = ['name', 'email', 'password', 'age', 'height', 'weight', 'gender', 'diagnosed_duration', 'dietary_preference', 'allergies']
 
     # Overriding create method to remove password hashing
     def create(self, validated_data):

@@ -1,3 +1,4 @@
+// SignUp.js
 import React, { useState } from 'react';
 import './SignUp.css';
 import axios from 'axios';
@@ -10,8 +11,11 @@ const SignUp = () => {
     password: '',
     age: '',
     gender: '',
+    height: '',
+    weight: '',
     diagnosed: '',
-    dietaryPreference: ''
+    dietaryPreference: '',
+    allergies: [],
   });
 
   const toggleActive = () => {
@@ -19,7 +23,18 @@ const SignUp = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'allergies') {
+      const options = e.target.options;
+      const selectedAllergies = [];
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].selected) {
+          selectedAllergies.push(options[i].value);
+        }
+      }
+      setFormData({ ...formData, allergies: selectedAllergies });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSignup = async (e) => {
@@ -81,7 +96,7 @@ const SignUp = () => {
             <input type="number" placeholder="Age" name="age" required onChange={handleChange} />
             <input type="number" placeholder="Height (cm)" name="height" required onChange={handleChange} />
             <input type="number" placeholder="Weight (kg)" name="weight" required onChange={handleChange} />
-            <select name="gender" className="custom-select"required onChange={handleChange}>
+            <select name="gender" className="custom-select" required onChange={handleChange}>
               <option value="">Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -95,17 +110,25 @@ const SignUp = () => {
               <option value="more_2_years">More than 2 years</option>
             </select>
             <select name="dietaryPreference" required onChange={handleChange}>
-              <option value="">Dietary Preference</option>
-              <option value="vegan">Vegan</option>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="non_vegetarian">Non-Vegetarian</option>
-              {/* Add more dietary preferences as needed */}
-            </select>
-            <button type="submit" className="form-submit">Signup</button>
-            <div className="form-footer">
-              <a href="#" className="form-link" onClick={() => setIsLoginActive(true)}>Already have an account? Login</a>
-            </div>
-          </form>
+    <option value="">Dietary Preference</option>
+    <option value="vegan">Vegan</option>
+    <option value="vegetarian">Vegetarian</option>
+    <option value="non_vegetarian">Non-Vegetarian</option>
+    {/* Add more dietary preferences as needed */}
+  </select>
+
+  <label htmlFor="allergies">Allergies (Select multiple if needed):</label>
+  <select name="allergies" id="allergies" multiple required onChange={handleChange}>
+    <option value="dairy">Dairy</option>
+    <option value="eggs">Eggs</option>
+    <option value="gluten">Gluten</option>
+    <option value="peanuts">Peanuts</option>
+    {/* Add more allergies as needed */}
+  </select>
+
+  <button type="submit" className="form-submit">Signup</button>
+  {/* ... rest of the form ... */}
+</form>
         )}
       </div>
     </div>
