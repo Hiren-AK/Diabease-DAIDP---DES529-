@@ -62,7 +62,7 @@ ROOT_URLCONF = 'diabease_server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'Frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
