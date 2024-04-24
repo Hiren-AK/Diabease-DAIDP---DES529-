@@ -2,7 +2,7 @@
 *.pyc
 
 # Ignore the virtual environment folder
-myvenv/
+myenv/
 
 # Ignore database files
 db.sqlite3
