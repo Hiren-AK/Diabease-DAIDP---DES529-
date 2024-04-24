@@ -58,9 +58,6 @@ const SignUp = () => {
       }));
     }
   };
-  
-  
-  
 
   const handleSignup = async (e) => {
     navigate('/signupdetails');
