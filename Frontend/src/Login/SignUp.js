@@ -53,9 +53,6 @@ const SignUp = () => {
       }));
     }
   };
-  
-  
-  
 
   const handleSignup = async (e) => {
     e.preventDefault();
