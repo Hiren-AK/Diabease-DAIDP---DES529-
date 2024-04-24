@@ -25,13 +25,14 @@ const SignUp = () => {
   const handleChange = (e) => {
     if (e.target.name === 'allergies') {
       const options = e.target.options;
-      const selectedAllergies = [];
+      let selectedAllergies = [];
       for (let i = 0; i < options.length; i++) {
         if (options[i].selected) {
           selectedAllergies.push(options[i].value);
         }
       }
-      setFormData({ ...formData, allergies: selectedAllergies });
+      // Join the array into a comma-separated string
+      setFormData({ ...formData, allergies: selectedAllergies.join(',') });
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
