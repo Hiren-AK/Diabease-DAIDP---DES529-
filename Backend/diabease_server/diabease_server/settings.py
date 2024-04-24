@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'api',
 ]
@@ -86,6 +87,9 @@ DATABASES = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True  # For development only; specify origins in production
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Add other origins as needed
+]
 
 
 # Password validation

@@ -13,10 +13,15 @@ const SignUp = () => {
     gender: '',
     height: '',
     weight: '',
-    diagnosed: '',
+    diagnosed_duration: '',
     diabetesType: '',
-    dietaryPreference: '',
+    dietary_preference: '',
     allergies: [],
+  });
+
+  const [loginData, setloginData] = useState({
+    email: '',
+    password: '',
   });
 
   const toggleActive = () => {
@@ -69,7 +74,7 @@ const SignUp = () => {
     
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/login/', formData);
+      const response = await axios.post('http://localhost:8000/api/login/', loginData);
       console.log('Login successful:', response.data);
       // Handle success, e.g., redirect or display a success message
 
@@ -122,10 +127,11 @@ const SignUp = () => {
             </select>
             <select name="diagnosed" required onChange={handleChange}>
               <option value="">Diagnosed Duration</option>
-              <option value="less_6_months">Less than 6 months</option>
-              <option value="6m_1y">6 months to 1 year</option>
-              <option value="1y_18m">1 year to 18 months</option>
-              <option value="more_2_years">More than 2 years</option>
+              <option value="not diagonsed/don't have">Not diagonsed/don't have</option>
+              <option value="less than 6 months">Less than 6 months</option>
+              <option value="6 months to 1 year">6 months to 1 year</option>
+              <option value="1 year to 18 months">1 year to 18 months</option>
+              <option value="more than 2 years">More than 2 years</option>
             </select>
             <div className="diabetes-type-section">
   
@@ -159,7 +165,7 @@ const SignUp = () => {
 </div>
 {/* ... rest of the form ... */}
 
-            <select name="dietaryPreference" required onChange={handleChange}>
+    <select name="dietary_preference" required onChange={handleChange}>
     <option value="">Dietary Preference</option>
     <option value="vegan">Vegan</option>
     <option value="vegetarian">Vegetarian</option>

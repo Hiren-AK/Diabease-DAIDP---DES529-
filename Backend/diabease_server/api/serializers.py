@@ -1,27 +1,35 @@
 from rest_framework import serializers
+from django.contrib.auth.hashers import make_password
 from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
-    # Custom validation for age
+    allergies = serializers.ListField(
+        child=serializers.CharField(),
+        allow_empty=True,
+        required=False
+    )
+
+    class Meta:
+        model = User
+        fields = ['name', 'email', 'password', 'age', 'height', 'weight', 'gender', 'diagnosed_duration', 'dietary_preference', 'allergies', 'diabetesType']
+
     def validate_age(self, value):
         if value < 0:
             raise serializers.ValidationError("Age cannot be negative.")
         return value
 
-    # Custom validation for email uniqueness
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("This email is already in use.")
         return value
 
-    # Define fields as optional by setting required=False
-    diagnosed_duration = serializers.CharField(required=False)
-    dietary_preference = serializers.CharField(required=False)
-
-    class Meta:
-        model = User
-        fields = ['name', 'email', 'password', 'age', 'height', 'weight', 'gender', 'diagnosed_duration', 'dietary_preference', 'allergies']
-
-    # Overriding create method to remove password hashing
     def create(self, validated_data):
+        # Handle the allergies array if present.
+        if validated_data.get('allergies'):
+            validated_data['allergies'] = ','.join(validated_data['allergies'])
+        else:
+            validated_data['allergies'] = 'none'
+        
+        # Hash the password before saving
+        validated_data['password'] = make_password(validated_data['password'])
         return super().create(validated_data)
