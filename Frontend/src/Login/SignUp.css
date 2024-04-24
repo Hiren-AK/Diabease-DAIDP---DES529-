@@ -1,0 +1,157 @@
+/* Container for the entire screen */
+.signup-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height instead of height to ensure it covers at least the whole viewport height */
+    background-image: linear-gradient(135deg, #667eea 0%, #5bac85 100%);
+    padding: 1rem; /* Add padding to ensure some spacing around the form */
+  }
+  
+  /* Container for the form */
+  .form-container {
+    background: rgba(34, 34, 34, 0.753);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(224, 218, 218, 0.1);
+    width: 55vh; /* Change from 100% to auto to allow the form to shrink as needed */
+    overflow: auto; /* Add overflow to handle small screen sizes */
+    margin: 1rem; /* Ensure there's some margin around the form container */
+  }
+  
+  /* ... (keep the rest of your CSS the same) */
+  
+    /* Style for the form header */
+    .form-container h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    /* Style for the form itself */
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Style for form inputs and selects */
+    .form-container form input,
+    .form-container form select {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 0.5rem;
+      font-size: 1rem; /* Increase font size for better readability */
+      box-sizing: border-box; /* Include padding in the width calculation */
+    }
+    
+    /* Remove border and increase font weight for focused input */
+    .form-container form input:focus,
+    .form-container form select:focus {
+      border-color: #667eea;
+      outline: none;
+    }
+    
+    /* Style for the submit button */
+    .form-container form button {
+      padding: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: linear-gradient(to right,#5bac85, #667eea);
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold; /* Make text bold */
+      box-shadow: 0 4px 6px rgba(151, 151, 181, 0.11), 0 1px 3px rgba(255, 246, 246, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    /* Hover effect for the button */
+    .form-container form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+      
+    }
+    
+  /* Toggle button styles */
+  .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .toggle-btn {
+      background: transparent;
+      border: 2px solid transparent;
+      color: #ccc; /* Default color for toggle buttons */
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      font-size: 16px;
+      outline: none;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      border-radius: 20px; /* Rounded corners for buttons */
+    }
+    
+    /* Hover effect for toggle buttons */
+    .toggle-btn:hover {
+      color: #fff; /* White text on hover */
+      background-color: rgb(95, 132, 179); /* Subtle background on hover */
+      transform: scale(1.15); /* Slight increase in size */
+    }
+    
+    /* Active toggle button style */
+    .toggle-btn.active {
+      color: #fff; /* White text for active button */
+      background-color: hsl(167, 53%, 33%); /* Background color for active button */
+      border-color: #3e5ae8; /* White border for active button */
+      border-radius: 20px; /* Rounded corners for active button */
+    }
+    
+    /* Make sure the form does not submit and refresh the page when toggling */
+    .form-footer a {
+      color: #667eea;
+      cursor: pointer;
+    }
+    
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+    
+    
+    /* Additional global styles */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    /* Input placeholder style */
+    ::placeholder {
+      color: #aaa; /* Lighter color for placeholders */
+    }
+    
+  /* Enhanced select dropdown style */
+  .custom-select {
+    appearance: none; /* This will remove the default dropdown arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* This is a default arrow icon in SVG format */
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+  }
+  
+  .form-container form select.custom-select:focus {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="#667eea" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Change the arrow color on focus */
+  }
+  .form-link {
+    color: #177045; /* Change the color to fit the theme */
+    margin-left: auto;
+    text-decoration: none; /* Removes the underline from the link */
+    font-weight: bold; /* Makes the text bold */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .form-link:hover {
+    color: #3c7440; /* Color of link text on hover */
+    text-decoration:wavy /* Adds an underline on hover */
+  }
+  
