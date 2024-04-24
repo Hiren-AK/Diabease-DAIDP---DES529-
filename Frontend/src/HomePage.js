@@ -1,9 +1,9 @@
-// SignUpDetails.js
+// HomePage.js
 
 import React from 'react';
-import './SignUpDetails.css';
+import './HomePage.css';
 
-const SignUpDetails = () => {
+const HomePage = () => {
   return (
     <div className="signup-details">
       <div className="container">
@@ -34,4 +34,4 @@ const SignUpDetails = () => {
   );
 }
 
-export default SignUpDetails;
+export default HomePage;

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './EditProfile.css'; 
+import React, { useState } from 'react'; // Correct
+import { useNavigate } from 'react-router-dom'; // Correct
+import './EditProfile.css'; // Make sure the path to your CSS file is correct
+// ... other imports ...
+
 import backButtonImage from ''; // Update the path to your imageour project
 
 const EditProfile = () => {
