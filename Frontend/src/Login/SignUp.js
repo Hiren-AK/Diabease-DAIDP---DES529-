@@ -14,6 +14,7 @@ const SignUp = () => {
     height: '',
     weight: '',
     diagnosed: '',
+    diabetesType: '',
     dietaryPreference: '',
     allergies: [],
   });
@@ -21,22 +22,35 @@ const SignUp = () => {
   const toggleActive = () => {
     setIsLoginActive(!isLoginActive);
   };
-
   const handleChange = (e) => {
-    if (e.target.name === 'allergies') {
-      const options = e.target.options;
-      let selectedAllergies = [];
-      for (let i = 0; i < options.length; i++) {
-        if (options[i].selected) {
-          selectedAllergies.push(options[i].value);
+    const { name, value, type, checked } = e.target;
+  
+    if (type === 'checkbox') {
+      setFormData(prevFormData => {
+        let newAllergies;
+        if (value === 'none') {
+          // If "None" is selected, clear all other selections.
+          newAllergies = checked ? ['none'] : [];
+        } else {
+          // Otherwise, add or remove the checked allergy.
+          newAllergies = checked ? [...prevFormData.allergies.filter(a => a !== 'none'), value]
+                                 : prevFormData.allergies.filter(a => a !== value);
         }
-      }
-      // Join the array into a comma-separated string
-      setFormData({ ...formData, allergies: selectedAllergies.join(',') });
+        return {
+          ...prevFormData,
+          allergies: newAllergies
+        };
+      });
     } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        [name]: value
+      }));
     }
   };
+  
+  
+  
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -110,6 +124,38 @@ const SignUp = () => {
               <option value="1y_18m">1 year to 18 months</option>
               <option value="more_2_years">More than 2 years</option>
             </select>
+            <div className="diabetes-type-section">
+  
+{/* ... existing code ... */}
+
+  <label htmlFor="diabetesType">Diabetes Type (Select one if needed):</label>
+  <div className="diabetes-type-options">
+    {['type 1', 'type 2', 'pre-diabetes', 'gestational', 'none'].map(type => (
+      <div key={type} className="diabetes-type-option">
+        <input
+          type="radio"
+          id={type}
+          name="diabetesType"
+          value={type}
+          checked={formData.diabetesType === type}
+          onChange={handleChange}
+        />
+        <label htmlFor={type}>{type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</label>
+      </div>
+    ))}
+  </div>
+  <div className="diabetes-info">
+    <span className="info-icon">i</span>
+    <div className="info-text">
+      <p>Type 2 diabetes: A chronic condition that affects the way the body processes blood sugar (glucose).</p>
+      <p>Type 1 diabetes: A chronic condition in which the pancreas produces little or no insulin.</p>
+      <p>Prediabetes: A condition in which blood sugar is high, but not high enough to be type 2 diabetes.</p>
+      <p>Gestational diabetes: A form of high blood sugar affecting pregnant women.</p>
+    </div>
+  </div>
+</div>
+{/* ... rest of the form ... */}
+
             <select name="dietaryPreference" required onChange={handleChange}>
     <option value="">Dietary Preference</option>
     <option value="vegan">Vegan</option>
@@ -119,13 +165,36 @@ const SignUp = () => {
   </select>
 
   <label htmlFor="allergies">Allergies (Select multiple if needed):</label>
-  <select name="allergies" id="allergies" multiple required onChange={handleChange}>
-    <option value="dairy">Dairy</option>
-    <option value="eggs">Eggs</option>
-    <option value="gluten">Gluten</option>
-    <option value="peanuts">Peanuts</option>
-    {/* Add more allergies as needed */}
-  </select>
+  {/* Replace the select element with this block of checkboxes */}
+  <div className="allergies-checkboxes">
+  <div>
+    <input
+      type="checkbox"
+      id="none"
+      name="allergies"
+      value="none"
+      checked={formData.allergies.includes('none')}
+      onChange={handleChange}
+    />
+    <label htmlFor="none">None</label>
+  </div>
+  {['dairy', 'eggs', 'gluten', 'peanuts'].map(allergy => (
+    <div key={allergy}>
+      <input
+        type="checkbox"
+        id={allergy}
+        name="allergies"
+        value={allergy}
+        checked={formData.allergies.includes(allergy)}
+        disabled={formData.allergies.includes('none')}
+        onChange={handleChange}
+      />
+      <label htmlFor={allergy}>{allergy.charAt(0).toUpperCase() + allergy.slice(1)}</label>
+    </div>
+  ))}
+</div>
+
+
 
   <button type="submit" className="form-submit">Signup</button>
   {/* ... rest of the form ... */}

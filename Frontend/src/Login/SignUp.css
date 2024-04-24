@@ -1,201 +1,364 @@
 /* Container for the entire screen */
 .signup-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Use min-height instead of height to ensure it covers at least the whole viewport height */
+  background-image: linear-gradient(135deg, #667eea 0%, #5bac85 100%);
+  padding: 1rem; /* Add padding to ensure some spacing around the form */
+}
+
+/* Container for the form */
+.form-container {
+  background: rgba(34, 34, 34, 0.753);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(224, 218, 218, 0.1);
+  width: 55vh; /* Change from 100% to auto to allow the form to shrink as needed */
+  overflow: auto; /* Add overflow to handle small screen sizes */
+  margin: 1rem; /* Ensure there's some margin around the form container */
+}
+
+
+  /* Style for the form header */
+  .form-container h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  /* Style for the form itself */
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Style for form inputs and selects */
+  .form-container form input,
+  .form-container form select {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem; /* Increase font size for better readability */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  
+  /* Remove border and increase font weight for focused input */
+  .form-container form input:focus,
+  .form-container form select:focus {
+    border-color: #667eea;
+    outline: none;
+  }
+  
+  /* Style for the submit button */
+  .form-container form button {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: linear-gradient(to right,#5bac85, #667eea);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold; /* Make text bold */
+    box-shadow: 0 4px 6px rgba(151, 151, 181, 0.11), 0 1px 3px rgba(255, 246, 246, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect for the button */
+  .form-container form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    
+  }
+  
+/* Toggle button styles */
+.toggle-buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Use min-height instead of height to ensure it covers at least the whole viewport height */
-    background-image: linear-gradient(135deg, #667eea 0%, #5bac85 100%);
-    padding: 1rem; /* Add padding to ensure some spacing around the form */
+    margin-bottom: 20px;
   }
   
-  /* Container for the form */
-  .form-container {
-    background: rgba(34, 34, 34, 0.753);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(224, 218, 218, 0.1);
-    width: 55vh; /* Change from 100% to auto to allow the form to shrink as needed */
-    overflow: auto; /* Add overflow to handle small screen sizes */
-    margin: 1rem; /* Ensure there's some margin around the form container */
-  }
- 
-  
-    /* Style for the form header */
-    .form-container h1 {
-      color: #333;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    
-    /* Style for the form itself */
-    .form-container form {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    /* Style for form inputs and selects */
-    .form-container form input,
-    .form-container form select {
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 2px solid #ddd;
-      border-radius: 0.5rem;
-      font-size: 1rem; /* Increase font size for better readability */
-      box-sizing: border-box; /* Include padding in the width calculation */
-    }
-    
-    /* Remove border and increase font weight for focused input */
-    .form-container form input:focus,
-    .form-container form select:focus {
-      border-color: #667eea;
-      outline: none;
-    }
-    
-    /* Style for the submit button */
-    .form-container form button {
-      padding: 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      background: linear-gradient(to right,#5bac85, #667eea);
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold; /* Make text bold */
-      box-shadow: 0 4px 6px rgba(151, 151, 181, 0.11), 0 1px 3px rgba(255, 246, 246, 0.08);
-      transition: all 0.3s ease;
-    }
-    
-    /* Hover effect for the button */
-    .form-container form button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-      
-    }
-    
-  /* Toggle button styles */
-  .toggle-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    
-    .toggle-btn {
-      background: transparent;
-      border: 2px solid transparent;
-      color: #ccc; /* Default color for toggle buttons */
-      padding: 10px 20px;
-      margin: 0 5px;
-      cursor: pointer;
-      font-size: 16px;
-      outline: none;
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
-      border-radius: 20px; /* Rounded corners for buttons */
-    }
-    
-    /* Hover effect for toggle buttons */
-    .toggle-btn:hover {
-      color: #fff; /* White text on hover */
-      background-color: rgb(95, 132, 179); /* Subtle background on hover */
-      transform: scale(1.15); /* Slight increase in size */
-    }
-    
-    /* Active toggle button style */
-    .toggle-btn.active {
-      color: #fff; /* White text for active button */
-      background-color: hsl(167, 53%, 33%); /* Background color for active button */
-      border-color: #3e5ae8; /* White border for active button */
-      border-radius: 20px; /* Rounded corners for active button */
-    }
-    
-    /* Make sure the form does not submit and refresh the page when toggling */
-    .form-footer a {
-      color: #667eea;
-      cursor: pointer;
-    }
-    
-    .form-footer a:hover {
-      text-decoration: underline;
-    }
-    
-    
-    /* Additional global styles */
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-    
-    /* Input placeholder style */
-    ::placeholder {
-      color: #aaa; /* Lighter color for placeholders */
-    }
-    
-  /* Enhanced select dropdown style */
-  .custom-select {
-    appearance: none; /* This will remove the default dropdown arrow */
-    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* This is a default arrow icon in SVG format */
-    background-repeat: no-repeat;
-    background-position-x: 98%;
-    background-position-y: 50%;
+  .toggle-btn {
+    background: transparent;
+    border: 2px solid transparent;
+    color: #ccc; /* Default color for toggle buttons */
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    border-radius: 20px; /* Rounded corners for buttons */
   }
   
-  .form-container form select.custom-select:focus {
-    background-image: url('data:image/svg+xml;utf8,<svg fill="#667eea" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Change the arrow color on focus */
-  }
-  .form-link {
-    color: #177045; /* Change the color to fit the theme */
-    margin-left: auto;
-    text-decoration: none; /* Removes the underline from the link */
-    font-weight: bold; /* Makes the text bold */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+  /* Hover effect for toggle buttons */
+  .toggle-btn:hover {
+    color: #fff; /* White text on hover */
+    background-color: rgb(95, 132, 179); /* Subtle background on hover */
+    transform: scale(1.15); /* Slight increase in size */
   }
   
-  .form-link:hover {
-    color: #3c7440; /* Color of link text on hover */
-    text-decoration:wavy /* Adds an underline on hover */
+  /* Active toggle button style */
+  .toggle-btn.active {
+    color: #fff; /* White text for active button */
+    background-color: hsl(167, 53%, 33%); /* Background color for active button */
+    border-color: #3e5ae8; /* White border for active button */
+    border-radius: 20px; /* Rounded corners for active button */
   }
-  /* Style for the multiple select box */
+  
+  /* Make sure the form does not submit and refresh the page when toggling */
+  .form-footer a {
+    color: #667eea;
+    cursor: pointer;
+  }
+  
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* Additional global styles */
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* Input placeholder style */
+  ::placeholder {
+    color: #aaa; /* Lighter color for placeholders */
+  }
+  
+/* Enhanced select dropdown style */
+.custom-select {
+  appearance: none; /* This will remove the default dropdown arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* This is a default arrow icon in SVG format */
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 50%;
+}
+
+.form-container form select.custom-select:focus {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="#667eea" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Change the arrow color on focus */
+}
+.form-link {
+  color: #177045; /* Change the color to fit the theme */
+  margin-left: auto;
+  text-decoration: none; /* Removes the underline from the link */
+  font-weight: bold; /* Makes the text bold */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.form-link:hover {
+  color: #3c7440; /* Color of link text on hover */
+  text-decoration:wavy /* Adds an underline on hover */
+}
+/* Style for the multiple select box */
 .form-container select[multiple] {
-  background-color: rgba(174, 119, 119, 0.1); /* Semi-transparent white background */
-  border: 2px solid #ddd; /* Border to match the other form inputs */
-  padding: 0.5rem; /* Padding inside the select box */
-  width: 100%; /* Full width of the container */
-  height: auto; /* Height should be auto to adjust based on the number of options selected */
-  color: #000000; /* Text color */
-  cursor: pointer; /* Cursor to indicate it's selectable */
-  box-sizing: border-box; /* Include padding and border in the width */
-  margin-bottom: 1rem; /* Margin to separate from other form fields */
+background-color: rgba(174, 119, 119, 0.1); /* Semi-transparent white background */
+border: 2px solid #ddd; /* Border to match the other form inputs */
+padding: 0.5rem; /* Padding inside the select box */
+width: 100%; /* Full width of the container */
+height: auto; /* Height should be auto to adjust based on the number of options selected */
+color: #000000; /* Text color */
+cursor: pointer; /* Cursor to indicate it's selectable */
+box-sizing: border-box; /* Include padding and border in the width */
+margin-bottom: 1rem; /* Margin to separate from other form fields */
 }
 
 /* Style for options inside the multiple select box */
 .form-container select[multiple] option {
-  padding: 0.5rem; /* Padding inside each option */
-  background: rgba(81, 114, 156, 0.723); /* Background of options to match the form */
-  color: #000000; /* Text color for options */
+padding: 0.5rem; /* Padding inside each option */
+background: rgba(81, 114, 156, 0.723); /* Background of options to match the form */
+color: #000000; /* Text color for options */
 }
 
 /* Adjust the scrollbar within the multiple select to match the theme */
 .form-container select[multiple]::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
+width: 10px; /* Width of the scrollbar */
 }
 
 .form-container select[multiple]::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.386); /* Color of the scrollbar track */
+background: rgba(0, 0, 0, 0.386); /* Color of the scrollbar track */
 }
 
 .form-container select[multiple]::-webkit-scrollbar-thumb {
-  background-color: #c761bb; /* Color of the scrollbar thumb */
-  border-radius: 5px; /* Rounded corners on the scrollbar thumb */
+background-color: #c761bb; /* Color of the scrollbar thumb */
+border-radius: 5px; /* Rounded corners on the scrollbar thumb */
 }
 
 /* Hover effect for the scrollbar thumb */
 .form-container select[multiple]::-webkit-scrollbar-thumb:hover {
-  background-color: #99a3d1; /* Color change on hover */
-  color: black;
+background-color: #99a3d1; /* Color change on hover */
+color: black;
 }
 
 /* Make the multiple select box responsive */
 @media (max-width: 768px) {
-  .form-container select[multiple] {
-    width: auto; /* Allow the select box to shrink on small screens */
-  }
+.form-container select[multiple] {
+  width: auto; /* Allow the select box to shrink on small screens */
+}
+}
+
+/* Styles for allergies checkboxes container */
+.allergies-checkboxes {
+display: grid;
+grid-template-columns: repeat(4, 1fr); /* Four columns */
+gap: 0.5rem; /* Spacing between checkboxes */
+align-items: center; /* Align items vertically in the center */
+margin-bottom: 1rem; /* Space below the checkbox section */
+}
+
+/* Style for each checkbox and label wrapper */
+.allergies-checkboxes div {
+display: flex;
+align-items: center; /* Align checkbox and label in the center */
+}
+
+/* Custom style for the checkbox */
+.allergies-checkboxes input[type='checkbox'] {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #ddd;
+border-radius: 4px;
+position: relative;
+cursor: pointer;
+margin-right: 0.5rem; /* Space between checkbox and label */
+}
+
+/* Style for the label text next to checkboxes */
+.allergies-checkboxes label {
+color: #fff; /* White color for better visibility */
+cursor: pointer;
+user-select: none; /* Prevent text selection */
+}
+
+/* Checkmark for the checked state of the checkbox */
+.allergies-checkboxes input[type='checkbox']:checked::after {
+content: '\2713'; /* Corrected Unicode checkmark symbol */
+font-size: 16px; /* Adjust the size as needed */
+position: absolute;
+top: -3px; /* Adjust the position as needed */
+left: 2px; /* Adjust the position as needed */
+color: white; /* Adjust color to be visible on the checkbox */
+}
+
+/* Hover effect for the checkbox */
+.allergies-checkboxes input[type='checkbox']:hover:not(:checked) {
+border-color: #5bac85;
+}
+
+/* Checked state style for the checkbox */
+.allergies-checkboxes input[type='checkbox']:checked {
+background-color: #667eea;
+border-color: #667eea;
+}
+
+/* Disabled state for checkboxes and their labels */
+.allergies-checkboxes input[type='checkbox']:disabled,
+.allergies-checkboxes input[type='checkbox']:disabled + label {
+opacity: 0.6; /* Semi-transparent */
+cursor: not-allowed;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+.allergies-checkboxes {
+  grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
+}
+}
+
+/* Diabetes type option styles */
+.diabetes-type-options {
+display: flex;
+flex-direction: column;
+margin-bottom: 1rem;
+}
+
+.diabetes-type-option {
+display: flex;
+align-items: center;
+margin-bottom: 0.5rem; /* Spacing between radio options */
+}
+
+.diabetes-type-option input {
+margin-right: 0.5rem; /* Space between radio button and label */
+}
+
+/* Information icon and tooltip container styles */
+.diabetes-info {
+position: relative; /* Relative position for the tooltip container */
+display: inline-flex; /* Use inline-flex for the container */
+align-items: center; /* Align items vertically */
+cursor: help; /* Help cursor for the info icon */
+}
+
+.info-icon {
+padding: 0.3rem; /* Smaller padding for the icon */
+border-radius: 20%; /* Circular shape */
+background-color: #667eea; /* Background color for the icon */
+color: white; /* Text color for the icon */
+margin-left: 24rem; /* Space after the radio options */
+margin-bottom: 0.5rem; /* Space below the info icon */
+font-size: 0.8rem; /* Adjust the font size as necessary */
+display: flex; /* Use flex to center the content */
+justify-content: center;
+align-items: center;
+}
+
+/* Tooltip text styles */
+.info-text {
+visibility: hidden; /* Hide the tooltip by default */
+width: 220px; /* Fixed width for the tooltip */
+background-color: #333; /* Background color */
+color: white; /* Text color */
+text-align: left;
+border-radius: 6px; /* Rounded corners for the tooltip */
+padding: 10px; /* Padding inside the tooltip */
+position: absolute; /* Absolute position for the tooltip */
+z-index: 1;
+bottom: 130%; /* Position above the info icon */
+left: 50%; /* Center the tooltip */
+margin-left: -110px; /* Half of the width to align center */
+opacity: 0; /* Transparent by default */
+transition: opacity 0.3s ease, visibility 0.3s; /* Transition for tooltip */
+}
+
+/* Show the tooltip when hovering over the icon */
+.info-icon:hover + .info-text {
+visibility: visible; /* Show the tooltip */
+opacity: 1; /* Fully visible */
+}
+
+/* Radio button styles */
+.diabetes-type-option input[type='radio'] {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+border: 2px solid #ddd; /* Border for unchecked state */
+background-color: #f9f9f9; /* Background for the radio button */
+border-radius: 50%;
+width: 20px;
+height: 20px;
+margin-right: 10px; /* Space between the radio button and label */
+vertical-align: middle;
+}
+
+/* Checked state for the radio button */
+.diabetes-type-option input[type='radio']:checked {
+background-color: #667eea; /* Background color for checked state */
+}
+
+/* Focus styles */
+.diabetes-type-option input[type='radio']:focus {
+outline: none;
+border-color: #1f1564;
+}
+
+/* Hover styles */
+.diabetes-type-option label:hover {
+color: #cc81a9; /* Text color change on hover */
 }
