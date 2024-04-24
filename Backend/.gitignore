@@ -3,6 +3,7 @@
 
 # Ignore the virtual environment folder
 myenv/
+winenv\
 
 # Ignore database files
 db.sqlite3
