@@ -34,31 +34,38 @@ const SignUp = () => {
   };
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-  
-    if (type === 'checkbox') {
-      setFormData(prevFormData => {
-        let newAllergies;
-        if (value === 'none') {
-          // If "None" is selected, clear all other selections.
-          newAllergies = checked ? ['none'] : [];
-        } else {
-          // Otherwise, add or remove the checked allergy.
-          newAllergies = checked ? [...prevFormData.allergies.filter(a => a !== 'none'), value]
-                                 : prevFormData.allergies.filter(a => a !== value);
-        }
-        return {
-          ...prevFormData,
-          allergies: newAllergies
-        };
-      });
-    } else {
-      setFormData(prevFormData => ({
-        ...prevFormData,
+
+    if (isLoginActive) {
+      // Update loginData for login form
+      setloginData(prevLoginData => ({
+        ...prevLoginData,
         [name]: value
       }));
-    }
-  };
-
+    } else {
+      if (type === 'checkbox') {
+        setFormData(prevFormData => {
+          let newAllergies;
+          if (value === 'none') {
+            // If "None" is selected, clear all other selections.
+            newAllergies = checked ? ['none'] : [];
+          } else {
+            // Otherwise, add or remove the checked allergy.
+            newAllergies = checked ? [...prevFormData.allergies.filter(a => a !== 'none'), value]
+                                  : prevFormData.allergies.filter(a => a !== value);
+          }
+          return {
+            ...prevFormData,
+            allergies: newAllergies
+          };
+        });
+      } else {
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          [name]: value
+        }));
+      }
+    };
+  }
   const handleSignup = async (e) => {
     navigate('/HomePage');
     e.preventDefault();
@@ -73,11 +80,11 @@ const SignUp = () => {
   };
 
   const handleLogin = async (e) => {
-  
 
     
     e.preventDefault();
     try {
+      console.log(loginData)
       const response = await axios.post('http://localhost:8000/api/login/', loginData);
       console.log('Login successful:', response.data);
       // Handle success, e.g., redirect or display a success message
