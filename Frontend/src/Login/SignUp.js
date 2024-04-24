@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './SignUp.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [isLoginActive, setIsLoginActive] = useState(true);
@@ -17,7 +18,11 @@ const SignUp = () => {
     diabetesType: '',
     dietary_preference: '',
     allergies: [],
+
+
   });
+  const navigate = useNavigate();
+
 
   const [loginData, setloginData] = useState({
     email: '',
@@ -58,6 +63,7 @@ const SignUp = () => {
   
 
   const handleSignup = async (e) => {
+    navigate('/signupdetails');
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8000/api/register/', formData);
@@ -70,7 +76,8 @@ const SignUp = () => {
   };
 
   const handleLogin = async (e) => {
-    //navigate to the dashboard
+    navigate('/signupdetails');
+
     
     e.preventDefault();
     try {
