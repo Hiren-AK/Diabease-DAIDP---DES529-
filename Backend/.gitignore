@@ -1,0 +1,36 @@
+# Ignore compiled Python files
+*.pyc
+
+# Ignore the virtual environment folder
+venv/
+
+# Ignore database files
+db.sqlite3
+
+# Ignore static files folder (assumes you're using Django's built-in staticfiles)
+staticfiles/
+
+# Ignore media files folder (assumes you're using Django's media storage)
+media/
+
+# Ignore secret key
+*.secret_key
+
+# Ignore environment-specific settings
+.env
+
+# Ignore logs
+logs/
+
+# Ignore backup files
+*.bak
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+
+# Ignore any local development configuration
+local_settings.py
