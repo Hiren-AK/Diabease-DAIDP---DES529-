@@ -67,11 +67,14 @@ const SignUp = () => {
   };
 
   const handleLogin = async (e) => {
+    //navigate to the dashboard
+    
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8000/api/login/', loginData);
       console.log('Login successful:', response.data);
       // Handle success, e.g., redirect or display a success message
+
     } catch (error) {
       console.error('Login failed:', error);
       // Handle error, e.g., display an error message
