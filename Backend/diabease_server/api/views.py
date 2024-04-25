@@ -16,12 +16,11 @@ def register_user(request):
         if request.method == 'POST':
             print("register_user")
             data = request.data
-            print(data)
+            print("Input data before serialization:", data)
             serializer = UserSerializer(data=data)
             if serializer.is_valid():
                 serializer.save()
-                print("here")
-                print(serializer.data)
+                print("Validated data:", serializer.data)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             else:
                 print(serializer.errors)
@@ -40,6 +39,7 @@ def login_view(request):
     if user:
         # User is authenticated, now get full user data
         serializer = UserSerializer(user)
+        print(serializer.data)
         return Response({
             'message': 'Login successful',
             'user': serializer.data  # Return the serialized user data

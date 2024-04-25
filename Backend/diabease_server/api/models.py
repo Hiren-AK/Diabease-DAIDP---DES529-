@@ -49,6 +49,27 @@ class User(AbstractBaseUser, PermissionsMixin):
     diabetesType = models.CharField(max_length=20, choices=DIABETES_TYPE_CHOICES, blank=True)
     allergies = models.CharField(max_length=100, blank=True)
 
+    def set_allergies(self, allergies):
+        if len(allergies) == 1:  # Assuming you normalize to ['none'] in the serializer
+            self.allergies = allergies[0]
+        else:
+            self.allergies = ','.join(allergies)
+        self.save()
+        if isinstance(allergies, list) and len(allergies) == 1:
+            self.allergies = allergies[0]
+        elif isinstance(allergies, list):
+            temp = ''
+            for v in allergies:
+                temp = temp + ',' + v
+            self.allergies = temp
+
+    def get_allergies_list(self):
+        # Return the allergies as a list split by commas, if not empty
+        if isinstance(self.allergies, list):
+            return self.allergies.split(',') if len(self.allergies) > 1 else self.allergies[0]
+        else:
+            return [self.allergies]
+
     groups = models.ManyToManyField(
         Group,
         verbose_name='groups',
