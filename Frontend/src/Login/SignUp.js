@@ -89,7 +89,7 @@ const SignUp = () => {
       console.log('Login successful:', response.data);
       //data.user will give -> 
       // Handle success, e.g., redirect or display a success message
-      navigate('/signupdetails');
+      navigate('/HomePage');
 
     } catch (error) {
       console.error('Login failed:', error);
