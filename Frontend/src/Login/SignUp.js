@@ -88,8 +88,10 @@ const SignUp = () => {
       const response = await axios.post('http://localhost:8000/api/login/', loginData);
       console.log('Login successful:', response.data);
       //data.user will give -> 
-      // Handle success, e.g., redirect or display a success message
-      navigate('/HomePage');
+      
+      // In your handleLogin or handleSignup function after the successful API call
+  navigate('/HomePage', { state: { ...response.data.user } });
+
 
     } catch (error) {
       console.error('Login failed:', error);
