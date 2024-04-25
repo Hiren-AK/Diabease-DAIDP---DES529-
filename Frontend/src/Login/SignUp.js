@@ -1,11 +1,27 @@
-// SignUp.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SignUp.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+
+  // Default to true unless specified in navigation state
+  // Initialize isLoginActive with true as default
   const [isLoginActive, setIsLoginActive] = useState(true);
+
+  // Effect to set isLoginActive based on location state after component mounts
+  useEffect(() => {
+    // Check if location.state exists and if isLoginActive is explicitly provided
+    if (location.state?.isLoginActive !== undefined) {
+      setIsLoginActive(location.state.isLoginActive);
+    }
+  }, [location]);
+
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,9 +37,8 @@ const SignUp = () => {
 
 
   });
-  const navigate = useNavigate();
 
-
+  
   const [loginData, setloginData] = useState({
     email: '',
     password: '',

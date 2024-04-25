@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 function LandingPage() {
     const navigate = useNavigate();
   
-    const navigateToAuth = () => {
-      navigate('/auth'); // You might need to adjust this based on your actual route
+    const navigateToAuth = (isLoginActive) => {
+      navigate('/auth', { state: { isLoginActive } });
     };
 
   return (
@@ -27,9 +27,9 @@ function LandingPage() {
             </ul>
           </div>
           <div className="ButtonContainer">
-        <button className="Button" onClick={navigateToAuth}>Login</button>
-        <button className="Button" onClick={navigateToAuth}>Register</button>
-      </div>
+            <button className="Button" onClick={() => navigateToAuth(true)}>Login</button>
+            <button className="Button" onClick={() => navigateToAuth(false)}>Register</button>
+          </div>
         </div>
         {/* Add the image here */}
         <div className="RightImageContainer">
