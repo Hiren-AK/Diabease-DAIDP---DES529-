@@ -62,7 +62,7 @@ ROOT_URLCONF = 'diabease_server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Frontend/build')],
+        'DIRS': [os.path.join(BASE_DIR, 'diabease_Server/Frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,6 +76,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'diabease_server.wsgi.application'
+AUTHENTICATION_BACKENDS = ['api.backends.EmailBackend', 'django.contrib.auth.backends.ModelBackend']
 
 
 # Database
@@ -112,6 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'api.User'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -131,7 +134,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Frontend/build/static'),  # Adjust the path as needed
+    os.path.join(BASE_DIR, 'diabease_Server/Frontend/build/static'),  # Adjust the path as needed
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

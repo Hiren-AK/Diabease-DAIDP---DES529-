@@ -14,33 +14,35 @@ import json
 def register_user(request):
     try:
         if request.method == 'POST':
+            print("register_user")
             data = request.data
-            print(data)
+            print("Input data before serialization:", data)
             serializer = UserSerializer(data=data)
             if serializer.is_valid():
                 serializer.save()
+                print("Validated data:", serializer.data)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             else:
                 print(serializer.errors)
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     except:
         return HttpResponseBadRequest('Invalid request data')
-
-@csrf_exempt
+    
+@api_view(['POST'])
 def login_view(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        print(data)
-        email = data.get('email')
-        password = data.get('password')
-        user = authenticate(request, username=email, password=password)
-        if user is not None:
-            login(request, user)
-            # Sign the user ID before sending it
-            signer = Signer()
-            signed_id = signer.sign(user.id)
-            return JsonResponse({'message': 'Login successful', 'id': signed_id}, status=200)
-        else:
-            return JsonResponse({'error': 'Invalid credentials'}, status=400)
+    data = request.data
+    print("Login")
+    print(data)
+    email = data.get('email')
+    password = data.get('password')
+    user = authenticate(request, username=email, password=password)
+    if user:
+        # User is authenticated, now get full user data
+        serializer = UserSerializer(user)
+        print(serializer.data)
+        return Response({
+            'message': 'Login successful',
+            'user': serializer.data  # Return the serialized user data
+        }, status=200)
     else:
-        return JsonResponse({'error': 'Only POST method is allowed'}, status=405)
+        return Response({'error': 'Invalid credentials'}, status=400)
