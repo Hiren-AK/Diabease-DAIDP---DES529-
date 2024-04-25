@@ -14,11 +14,14 @@ import json
 def register_user(request):
     try:
         if request.method == 'POST':
+            print("register_user")
             data = request.data
             print(data)
             serializer = UserSerializer(data=data)
             if serializer.is_valid():
                 serializer.save()
+                print("here")
+                print(serializer.data)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             else:
                 print(serializer.errors)
@@ -29,15 +32,14 @@ def register_user(request):
 @api_view(['POST'])
 def login_view(request):
     data = request.data
+    print("Login")
     print(data)
     email = data.get('email')
     password = data.get('password')
     user = authenticate(request, username=email, password=password)
     if user:
         # User is authenticated, now get full user data
-        print("in")
         serializer = UserSerializer(user)
-        print("got it")
         return Response({
             'message': 'Login successful',
             'user': serializer.data  # Return the serialized user data

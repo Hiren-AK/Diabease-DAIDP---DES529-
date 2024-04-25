@@ -71,11 +71,5 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    def set_allergies(self, allergy_list):
-        self.allergies = 'none' if 'none' in allergy_list and len(allergy_list) == 1 else ','.join([a for a in allergy_list if a != 'none'])
-
-    def get_allergies(self):
-        return self.allergies.split(',') if self.allergies else []
-
     def __str__(self):
         return self.email

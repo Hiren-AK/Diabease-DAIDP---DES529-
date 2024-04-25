@@ -70,7 +70,7 @@ const SignUp = () => {
     navigate('/HomePage');
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/register/', formData);
+      const response = await axios.post('http://192.168.243.62:8000/api/register/', formData);
       console.log('Signup successful:', response.data);
       // Handle success, e.g., redirect or display a success message
     } catch (error) {
@@ -85,8 +85,9 @@ const SignUp = () => {
     e.preventDefault();
     try {
       console.log(loginData)
-      const response = await axios.post('http://localhost:8000/api/login/', loginData);
+      const response = await axios.post('http://192.168.243.62:8000/api/login/', loginData);
       console.log('Login successful:', response.data);
+      //data.user will give -> 
       // Handle success, e.g., redirect or display a success message
       navigate('/HomePage');
 
