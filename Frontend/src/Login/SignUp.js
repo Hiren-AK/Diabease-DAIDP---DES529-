@@ -67,10 +67,6 @@ const SignUp = () => {
     };
   }
   const handleSignup = async (e) => {
-<<<<<<< HEAD
-    navigate('/signupdetails');
-=======
->>>>>>> 01ef3fbba7d7bbdaf0863284311d6b3c8aefb149
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8000/api/register/', formData);
