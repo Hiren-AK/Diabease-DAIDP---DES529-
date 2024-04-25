@@ -71,7 +71,7 @@ const SignUp = () => {
     try {
       const response = await axios.post('http://localhost:8000/api/register/', formData);
       console.log('Signup successful:', response.data);
-      navigate('/HomePage');
+      navigate('/HomePage', { state: { ...response.data } });
       // Handle success, e.g., redirect or display a success message
     } catch (error) {
       console.error('Signup failed:', error);

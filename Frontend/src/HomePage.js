@@ -7,6 +7,7 @@ const HomePage = () => {
   const location = useLocation();
   const userData = location.state || {}; // Make sure to handle `undefined` state
   const voiceglowContainerRef = useRef(null); // Ref for the Voiceglow container
+  const navigate = useNavigate();
 
   // Effect for loading the Voiceglow widget script
   useEffect(() => {
