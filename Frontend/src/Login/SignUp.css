@@ -19,18 +19,12 @@ html {
 .form-container {
   background: rgba(34, 34, 34, 0.753);
   padding: 2rem;
+
   border-radius: 1rem;
   box-shadow: 0 10px 25px rgba(224, 218, 218, 0.1);
-  width: 55vh; /* Change from 100% to auto to allow the form to shrink as needed */
+  width: 65vh; /* Change from 100% to auto to allow the form to shrink as needed */
   overflow: auto; /* Add overflow to handle small screen sizes */
   margin: 1rem; /* Ensure there's some margin around the form container */
-}
-
-.edit-profile-form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
-  gap: 10px; /* Spacing between grid items */
-  align-items: center; /* Align items vertically */
 }
 
 
@@ -377,3 +371,36 @@ border-color: #1f1564;
 .diabetes-type-option label:hover {
 color: #cc81a9; /* Text color change on hover */
 }
+/* SignUp.css */
+
+/* ... other styles ... */
+
+.privacy-note {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  padding: 1rem;
+  margin-top: 2rem; /* Space above the privacy note */
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  color: #333; /* Dark text color for readability */
+  line-height: 1.4; /* Line height for better readability */
+  font-family: 'Lato', sans-serif; /* Use the Lato font for consistency */;
+}
+
+.privacy-note p:first-of-type {
+  font-weight: bold; /* Make the first paragraph bold */
+  margin-bottom: 0.5rem; /* Space between the bold title and the content */
+}
+/* SignUp.css */
+
+/* ... other styles ... */
+
+/* Style for labels */
+label[for="diabetesType"],
+label[for="allergies"] {
+  color: #fff; /* Set the text color to white */
+  padding: 1rem;
+}
+
+/* ... other styles ... */

@@ -90,7 +90,7 @@ const SignUp = () => {
       //data.user will give -> 
       
       // In your handleLogin or handleSignup function after the successful API call
-  navigate('/HomePage', { state: { ...response.data.user } });
+    navigate('/HomePage', { state: { ...response.data.user } });
 
 
     } catch (error) {
@@ -216,6 +216,14 @@ const SignUp = () => {
       <label htmlFor={allergy}>{allergy.charAt(0).toUpperCase() + allergy.slice(1)}</label>
     </div>
   ))}
+</div>
+<div className="privacy-note">
+  <p>
+    Your Privacy is Secure
+  </p>
+  <p>
+    Rest assured, any information you provide during registration is strictly confidential. It's used solely to personalize your experience with our chatbot and will never be shared.
+  </p>
 </div>
 
 
