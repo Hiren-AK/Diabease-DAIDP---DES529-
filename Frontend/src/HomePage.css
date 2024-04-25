@@ -134,7 +134,7 @@ html {
   
 /* Add the hover styles for edit-button and ai-button as well */
     .edit-button:hover, .ai-button:hover {
-    background-color: #4fa7ff; /* Light blue shade for hover effect */
+    background-color: #695bc7bd; /* Light blue shade for hover effect */
     transform: translateY(-5px); /* Added translateY for hover effect */
     /* Add a transition for smooth hover effect */
     transition: background-color 0.3s ease, transform 0.3s ease;

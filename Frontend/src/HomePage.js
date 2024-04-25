@@ -2,8 +2,17 @@
 
 import React from 'react';
 import './HomePage.css';
+import { useLocation } from 'react-router-dom';
+
 
 const HomePage = () => {
+  const location = useLocation();
+  const { state } = location;
+  const userData = JSON.parse(localStorage.getItem('userData'));
+
+ console.log(userData);
+  // `state` now contains the response data
+
   return (
     <div className="signup-details">
       <div className="container">

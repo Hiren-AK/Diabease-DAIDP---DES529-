@@ -26,6 +26,13 @@ html {
   margin: 1rem; /* Ensure there's some margin around the form container */
 }
 
+.edit-profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+  gap: 10px; /* Spacing between grid items */
+  align-items: center; /* Align items vertically */
+}
+
 
   /* Style for the form header */
   .form-container h1 {
@@ -96,22 +103,22 @@ html {
     font-size: 16px;
     outline: none;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    border-radius: 20px; /* Rounded corners for buttons */
+    border-radius: 10px; /* Rounded corners for buttons */
   }
   
   /* Hover effect for toggle buttons */
   .toggle-btn:hover {
     color: #fff; /* White text on hover */
     background-color: rgb(95, 132, 179); /* Subtle background on hover */
-    transform: scale(1.15); /* Slight increase in size */
+    transform: scale(0.9); /* Slight increase in size */
   }
   
   /* Active toggle button style */
   .toggle-btn.active {
     color: #fff; /* White text for active button */
     background-color: hsl(167, 53%, 33%); /* Background color for active button */
-    border-color: #3e5ae8; /* White border for active button */
-    border-radius: 20px; /* Rounded corners for active button */
+    border-color: #3e5ae870; /* White border for active button */
+    border-radius: 10px; /* Rounded corners for active button */
   }
   
   /* Make sure the form does not submit and refresh the page when toggling */
@@ -281,14 +288,15 @@ cursor: not-allowed;
 /* Diabetes type option styles */
 .diabetes-type-options {
 display: flex;
+color: white;
 flex-direction: column;
-margin-bottom: 1rem;
+margin-top:1.5rem;
 }
 
 .diabetes-type-option {
 display: flex;
 align-items: center;
-margin-bottom: 0.5rem; /* Spacing between radio options */
+margin-bottom: 0rem; /* Spacing between radio options */
 }
 
 .diabetes-type-option input {

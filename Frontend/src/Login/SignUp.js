@@ -60,7 +60,7 @@ const SignUp = () => {
   };
 
   const handleSignup = async (e) => {
-    navigate('/HomePage');
+    navigate('/signupdetails');
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8000/api/register/', formData);
@@ -81,7 +81,7 @@ const SignUp = () => {
       const response = await axios.post('http://localhost:8000/api/login/', loginData);
       console.log('Login successful:', response.data);
       // Handle success, e.g., redirect or display a success message
-      navigate('/HomePage');
+      navigate('/signupdetails');
 
     } catch (error) {
       console.error('Login failed:', error);
