@@ -7,8 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 const HomePage = () => {
   const location = useLocation();
-  const { state } = location;
-  const userData = JSON.parse(localStorage.getItem('userData'));
+  const userData = location.state;
 
  console.log(userData);
   // `state` now contains the response data
@@ -21,11 +20,10 @@ const HomePage = () => {
           <p className="tagline">Elevate your wellness experience.</p>
           <div className="about-you">
             <h2>About You</h2>
-            <p>Name: </p>
-            <p>Gender: </p>
-            <p>Diabetes Type: </p>
-            <p>Dietary Preference: </p>
-            <p>Allergies: </p>
+            <p>Name: , {userData.name}!</p>
+            <p>Gender:{userData.gender} </p>
+            <p>Diabetes Type:{userData.diabetesType} </p>
+            <p>Dietary Preference: {userData.dietary_preference}</p>
             <button className="edit-button">Edit</button>
           </div>
          
