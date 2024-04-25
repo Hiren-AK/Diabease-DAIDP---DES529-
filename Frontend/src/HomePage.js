@@ -5,13 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const location = useLocation();
-<<<<<<< HEAD
-  const navigate = useNavigate();
-  const userData = location.state;
-
-  console.log(userData);
-  // `state` now contains the response data
-=======
   const userData = location.state || {}; // Make sure to handle `undefined` state
   const voiceglowContainerRef = useRef(null); // Ref for the Voiceglow container
 
@@ -39,7 +32,6 @@ const HomePage = () => {
       document.body.removeChild(VG_SCRIPT);
     };
   }, []);
->>>>>>> f2528b1b267c8c49816b0afa902bea65f341b251
 
   const handleEditClick = () => {
     navigate('/editprofile'); // Adjust the route as needed
@@ -52,19 +44,11 @@ const HomePage = () => {
           <p className="tagline">Elevate your wellness experience.</p>
           <div className="about-you">
             <h2>About You</h2>
-<<<<<<< HEAD
             <p>Name : {userData.name}!</p>
             <p>Gender : {userData.gender} </p>
             <p>Diabetes Type : {userData.diabetesType} </p>
             <p>Dietary Preference : {userData.dietary_preference}</p>
             <button className="edit-button" onClick={handleEditClick}>Edit</button>
-=======
-            <p>Name: {userData.name}!</p>
-            <p>Gender: {userData.gender}</p>
-            <p>Diabetes Type: {userData.diabetesType}</p>
-            <p>Dietary Preference: {userData.dietary_preference}</p>
-            <button className="edit-button">Edit</button>
->>>>>>> f2528b1b267c8c49816b0afa902bea65f341b251
           </div>
         </div>
         <div className="right-panel">
