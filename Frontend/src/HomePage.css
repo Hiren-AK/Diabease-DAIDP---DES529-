@@ -7,6 +7,20 @@
 html {
   font-family: 'Lato', sans-serif;
 }
+#VG_OVERLAY_CONTAINER {
+  width: 100%; /* Adjust width as necessary, could be 500px or another value */
+  height: 500px; /* Adjust height as needed */
+  max-width: 100%; /* Ensure it doesn’t overflow its container */
+  box-sizing: border-box; /* Adjust box model to include padding and borders in the element's size */
+  overflow: auto; /* Add scrollbars if content overflows */
+}
+
+@media (max-width: 600px) {
+  #VG_OVERLAY_CONTAINER {
+    height: 300px; /* Smaller height for smaller devices */
+  }
+}
+
 .signup-details {
     display: flex;
     justify-content: center;
@@ -103,8 +117,8 @@ html {
   }
   
   .edit-button{
-    background-color: #3d3475;  /* updated color */
-    color: wheat; /* updated color for contrast */
+    background-color: wheat;  /* updated color */
+    color: #3d3475; /* updated color for contrast */
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
@@ -134,7 +148,7 @@ html {
   
 /* Add the hover styles for edit-button and ai-button as well */
     .edit-button:hover, .ai-button:hover {
-    background-color: #695bc7bd; /* Light blue shade for hover effect */
+    background-color: rgb(106, 96, 75); /* Light blue shade for hover effect */
     transform: translateY(-5px); /* Added translateY for hover effect */
     /* Add a transition for smooth hover effect */
     transition: background-color 0.3s ease, transform 0.3s ease;
