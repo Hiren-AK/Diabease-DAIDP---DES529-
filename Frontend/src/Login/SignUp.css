@@ -308,14 +308,15 @@ cursor: help; /* Help cursor for the info icon */
 .info-icon {
 padding: 0.3rem; /* Smaller padding for the icon */
 border-radius: 20%; /* Circular shape */
-background-color: #667eea; /* Background color for the icon */
-color: white; /* Text color for the icon */
+background-color: turquoise; /* Background color for the icon */
+color: rgb(0, 0, 0); /* Text color for the icon */
 margin-left: 24rem; /* Space after the radio options */
 margin-bottom: 0.5rem; /* Space below the info icon */
 font-size: 0.8rem; /* Adjust the font size as necessary */
 display: flex; /* Use flex to center the content */
 justify-content: center;
 align-items: center;
+font-weight: bold ;
 }
 
 /* Tooltip text styles */
@@ -329,6 +330,7 @@ border-radius: 6px; /* Rounded corners for the tooltip */
 padding: 10px; /* Padding inside the tooltip */
 position: absolute; /* Absolute position for the tooltip */
 z-index: 1;
+
 bottom: 130%; /* Position above the info icon */
 left: 50%; /* Center the tooltip */
 margin-left: -110px; /* Half of the width to align center */

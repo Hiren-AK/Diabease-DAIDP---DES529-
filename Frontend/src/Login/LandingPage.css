@@ -1,0 +1,180 @@
+/* HomePage.css */
+
+/* Include the Google Font import at the top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Set the font-family for the root element or body */
+html {
+  font-family: 'Lato', sans-serif;
+}
+.LandingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3D3475;
+    color: wheat;
+    height: 100vh;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .BlackBox {
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .Container {
+    display: flex;
+    z-index: 2;
+    max-width: 1200px; /* Adjust based on your preference */
+    
+  }
+  
+  .ContentBox{
+    flex: 12;
+    padding: 2rem;
+    position: absolute;
+    right: 45%;
+    bottom: 20%;
+    height: 65vh;
+    background-color: #1D1D1D;
+    opacity: 0.9;
+    border-radius: 7px;
+    box-shadow: #1D1D1D;
+  
+  }
+  .ContentBox:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .InfoCard {
+    padding: 2rem;
+    background-color: #3D3475;
+    border-radius: 10px;
+    margin: 0 1rem;
+    
+  }
+  
+  .Title {
+    font-size: 2.5rem;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .Description {
+    margin: 1rem 0;
+    font-family: 'Lato', sans-serif;
+
+  }
+  
+  .FeaturesList {
+    list-style-type: none;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .FeaturesList li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .ButtonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .Button {
+    padding: 1rem 2rem;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #1D1D1D;
+    cursor: pointer;
+    width: 42%;
+    position: relative;
+    top: 3vh;
+    left: 19vh;
+    font-weight: bold; /* This will make the text bold */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 5px;
+  }
+  
+  
+  .Button:hover {
+    font-style: bold;
+    transform: scale(1.05);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    color: #3D3475;
+  }
+  
+  .InfoCard {
+    background-color: wheat;
+    color: #1D1D1D;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive styling as necessary */
+  @media (max-width: 768px) {
+    .Container {
+      flex-direction: column;
+    }
+  
+    .BlackBox {
+      width: 100%;
+      height: 50%;
+      left: 0;
+      top: 0;
+    }
+  
+    .ContentBox, .InfoCard {
+      margin-top: 1rem;
+    }
+  }
+
+  .FeaturesList {
+    list-style: none; /* Remove default list styling */
+    padding-left: 0; /* Remove default padding */
+  }
+  
+  .FeaturesList li {
+    position: relative;
+    padding-left: 20px; /* Space for custom bullet */
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  
+  .FeaturesList li::before {
+    content: ''; /* The content is empty but the space is used */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height:4px; /* Dot size */
+    width:4px; /* Dot size */
+    border-radius: 50%;
+    background-color: wheat /* Color of the dot */
+  }
+
+.RightImageContainer{
+    display: flex;
+    justify-content: center;
+    scale: 0.59;
+    align-items: center;
+    position: relative;
+    left: 45vh;
+    bottom: 2.7vh;
+ 
+}
+.RightImageContainer:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0.2, 0.2, 0.2, 0.2);
+}
+  

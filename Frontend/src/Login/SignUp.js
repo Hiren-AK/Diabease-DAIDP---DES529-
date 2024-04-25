@@ -169,7 +169,7 @@ const SignUp = () => {
     ))}
   </div>
   <div className="diabetes-info">
-    <span className="info-icon">i</span>
+    <span className="info-icon">ⓘ</span>
     <div className="info-text">
       <p>Type 2 diabetes: A chronic condition that affects the way the body processes blood sugar (glucose).</p>
       <p>Type 1 diabetes: A chronic condition in which the pancreas produces little or no insulin.</p>

@@ -3,15 +3,20 @@
 import React from 'react';
 import './HomePage.css';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const HomePage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const userData = location.state;
 
- console.log(userData);
+  console.log(userData);
   // `state` now contains the response data
 
+  const handleEditClick = () => {
+    navigate('/editprofile'); // Adjust the route as needed
+  };
   return (
     <div className="signup-details">
       <div className="container">
@@ -24,7 +29,7 @@ const HomePage = () => {
             <p>Gender : {userData.gender} </p>
             <p>Diabetes Type : {userData.diabetesType} </p>
             <p>Dietary Preference : {userData.dietary_preference}</p>
-            <button className="edit-button">Edit</button>
+            <button className="edit-button" onClick={handleEditClick}>Edit</button>
           </div>
          
         </div>
