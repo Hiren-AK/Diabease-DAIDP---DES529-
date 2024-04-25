@@ -5,17 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const location = useLocation();
-<<<<<<< HEAD
-  const navigate = useNavigate();
-  // const userData = location.state;
-
-
-
-
-  console.log(userData);
-  // `state` now contains the response data
-=======
->>>>>>> 2d3d960882615f06239b41a7e3482826a7ff8a65
   const userData = location.state || {}; // Make sure to handle `undefined` state
   const voiceglowContainerRef = useRef(null); // Ref for the Voiceglow container
   const navigate = useNavigate();
