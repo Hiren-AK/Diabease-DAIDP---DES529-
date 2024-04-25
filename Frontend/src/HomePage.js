@@ -20,10 +20,10 @@ const HomePage = () => {
           <p className="tagline">Elevate your wellness experience.</p>
           <div className="about-you">
             <h2>About You</h2>
-            <p>Name: , {userData.name}!</p>
-            <p>Gender:{userData.gender} </p>
-            <p>Diabetes Type:{userData.diabetesType} </p>
-            <p>Dietary Preference: {userData.dietary_preference}</p>
+            <p>Name : {userData.name}!</p>
+            <p>Gender : {userData.gender} </p>
+            <p>Diabetes Type : {userData.diabetesType} </p>
+            <p>Dietary Preference : {userData.dietary_preference}</p>
             <button className="edit-button">Edit</button>
           </div>
          
